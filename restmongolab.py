@@ -33,6 +33,17 @@ class MongoLabRestClient(object):
     """
 
     def __init__(self, api_key, api_version=1, debug=False):
+        """Constructor for :py:class:`MongoLabRestClient`.
+
+        :param api_key: The MongoLab API Key
+        :type api_key: unicode or str
+        :param api_version: The integer version of the REST API. Default is 1.
+        :type api_version: int
+        :param debug: If set to ``True``, then :py:mod:`httplib` prints out debug
+         information for all requests made.
+        :type debug: bool
+
+        """
         self._URL = 'api.mongolab.com'
         self._BASE_URL = 'api.mongolab.com/api'
         self._API_VERSION = api_version
