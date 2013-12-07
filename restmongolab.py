@@ -280,7 +280,7 @@ class MongoLabRestClient(object):
         """
         return self._request('DELETE', ['databases', db_name, 'collections', collection_name, _id])
 
-    # --- Convenience methods for available runCommand tasks ---
+
 
     def run_command(self, db_name, command_to_run, cmd_value=None, **kwargs):
         """Run database and collection-level commands.
@@ -300,7 +300,7 @@ class MongoLabRestClient(object):
             * convertToCapped
             * distinct
             * findAndModify
-            geoNear
+            * geoNear
             * reIndex
             * collStats
             * dbStats
@@ -338,6 +338,8 @@ class MongoLabRestClient(object):
         for k in kwargs:
             payload[k] = kwargs[k]
         return self._request('POST', ['databases', db_name, 'runCommand'], body=payload)
+
+    # --- Convenience methods for available runCommand tasks ---
 
     def get_last_error(self, db_name, w=1, wtimeout=10):
         return self.run_command(db_name, 'getLastError', 1, w=w, timeout=wtimeout)
