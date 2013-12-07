@@ -14,6 +14,6 @@ in conjunction with their own module.
 
 **MongoLab-REST-GAE** therefore only uses [httplib](http://docs.python.org/2/library/httplib.html),
 [urllib](http://docs.python.org/2/library/urllib.html) and the
-[json](http://docs.python.org/2/library/json.html) standard modules, enabling the use
+[json](http://docs.python.org/2/library/json.html) standard modules, simplifying the use
 of MongoLab storage for Google App Engine.
 
