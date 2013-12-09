@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-:mod:`restmongolab`
+:mod:`mongolabgae`
 ==================
 
-.. module:: restmongolab
+.. module:: mongolabgae
    :platform: Unix, Windows
    :synopsis: A MongoLab REST API connection module using Python standard library modules.
 
