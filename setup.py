@@ -20,7 +20,7 @@ from __future__ import absolute_import
 from distutils.core import setup
 
 setup(
-      name='mongolab-rest-gae',
+      name='mongolabgae',
       version='0.1.0',
       description='A Python REST client for using MongoLab storage in Google App Engine.',
       author='Henrik Blidh',
@@ -28,7 +28,7 @@ setup(
       license='Nedomkull Mathematical Modeling',
       url='www.nedomkull.com',
       packages=[
-                'mongolab-rest-gae',
+                'mongolabgae',
                 ],
       package_data={},
       install_requires=[],
