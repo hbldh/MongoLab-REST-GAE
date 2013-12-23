@@ -280,8 +280,6 @@ class MongoLabRestClient(object):
         """
         return self._request('DELETE', ['databases', db_name, 'collections', collection_name, _id])
 
-
-
     def run_command(self, db_name, command_to_run, cmd_value=None, **kwargs):
         """Run database and collection-level commands.
 
@@ -342,6 +340,17 @@ class MongoLabRestClient(object):
     # --- Convenience methods for available runCommand tasks ---
 
     def get_last_error(self, db_name, w=1, wtimeout=10):
+        """Method calling the ``getLastError`` command.
+
+        :param db_name: The name of the database to query.
+        :type db_name: str or unicode
+        :param w: The write concern 
+        :type w: int or str
+        :param wtimeout:
+        :type wtimeout:
+        :return:
+        :rtype:
+        """
         return self.run_command(db_name, 'getLastError', 1, w=w, timeout=wtimeout)
 
     def get_prev_error(self, db_name, w=1, wtimeout=10):
@@ -505,8 +514,8 @@ class MongoLabRestClient(object):
             url_string.append(dir_strings)
 
         if parameters:
-            parameters['apiKey'] = API_KEY
+            parameters['apiKey'] = self._API_KEY
         else:
-            parameters = {'apiKey': API_KEY}
+            parameters = {'apiKey': self._API_KEY}
         return "{0}?{1}".format("/".join(url_string), urllib.urlencode(parameters))
 
