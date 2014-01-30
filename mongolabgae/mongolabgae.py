@@ -215,6 +215,14 @@ class MongoLabRestClient(object):
 
         Identical to calling the :py:meth:`update` method with empty list input.
 
+        To remove all elements in the collection::
+
+            mongolab_rest_client.remove('db_name', 'collection_name')
+
+        To remove all elements which have a specific field present:
+
+            mongolab_rest_client.remove('db_name', 'collection_name', {'field': {'$exists': 1}})
+
         :param db_name: The name of the database to query.
         :type db_name: str or unicode
         :param collection_name: The name of the collection to query.
@@ -463,7 +471,7 @@ class MongoLabRestClient(object):
         try:
             self._https_connection.request(method=type_of_request,
                                            url=self._build_request_url(dir_strings, parameters),
-                                           body=json.dumps(body) if body else None,
+                                           body=json.dumps(body) if body is not None else None,
                                            headers=self._header)
         except Exception as e:
             parsed_response = {'error': "Request error: {0}".format(str(e))}
